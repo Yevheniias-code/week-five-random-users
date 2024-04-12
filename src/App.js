@@ -1,4 +1,3 @@
-import { render } from '@testing-library/react';
 import { Component } from 'react';
 import './App.css';
 
@@ -12,17 +11,14 @@ class App extends Component {
     const response = await fetch(url);
     const data = await response.json();
     this.setState({person: data.results[0]})
-    console.log(data.results[0])
   }
-
-
 
   render() {
     return (
       <div>
         {!this.state.person ? <p>Loading...</p> : 
         <div>
-          <img src={this.state.person.picture.large} width="100px" alt="User image"/>
+          <img src={this.state.person.picture.large} width="100px" alt="User"/>
           <h1>{this.state.person.name.title}. {this.state.person.name.first} {this.state.person.name.last}</h1>
           <p>{this.state.person.email}</p>
         </div>
